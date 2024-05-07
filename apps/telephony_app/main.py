@@ -17,6 +17,7 @@ from vocode.streaming.telephony.server.base import (
     TelephonyServer,
 )
 from dotenv import load_dotenv
+from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
 
 # Local application/library specific imports
 from speller_agent import (
@@ -60,8 +61,8 @@ telephony_server = TelephonyServer(
         TwilioInboundCallConfig(
             url="/inbound_call",
             agent_config=ChatGPTAgentConfig(
-                initial_message=BaseMessage(text="What up"),
-                prompt_preamble="Have a pleasant conversation about life",
+                initial_message=BaseMessage(text="Hello, I am a Man with a wrench virtual agent"),
+                prompt_preamble="Act as a professional and courteous customer service agent for an appliance repair company. Your primary tasks include booking and rescheduling appointments for customers, providing status updates on current service jobs, and offering any relevant information or advice. You will handle each inquiry with empathy and precision, ensuring the customer feels supported throughout their interaction. If a customer asks a question or requests assistance that requires specialized knowledge, provide clear instructions on the next steps they can take or guide them to the appropriate resources",
                 generate_responses=True,
             ),
             # uncomment this to use the speller agent instead
@@ -69,6 +70,10 @@ telephony_server = TelephonyServer(
             #     initial_message=BaseMessage(text="im a speller agent, say something to me and ill spell it out for you"),
             #     generate_responses=False,
             # ),
+            synthesizer_config=ElevenLabsSynthesizerConfig.from_telephone_output_device(
+                        api_key=os.getenv("ELEVEN_LABS_API_KEY"),
+                        voice_id="3gsg3cxXyFLcGIfNbM6C"
+            ),
             twilio_config=TwilioConfig(
                 account_sid=os.environ["TWILIO_ACCOUNT_SID"],
                 auth_token=os.environ["TWILIO_AUTH_TOKEN"],
