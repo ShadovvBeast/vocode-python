@@ -1,7 +1,7 @@
 from vocode.streaming.action.base_action import BaseAction
 from vocode.streaming.action.factory import ActionFactory
 from vocode.streaming.models.actions import ActionConfig
-from actions.available_slots import AvailableSlots, AvailableSlotsActionConfig
+from .actions.available_slots import AvailableSlots, AvailableSlotsActionConfig
 
 
 class MwawActionFactory(ActionFactory):

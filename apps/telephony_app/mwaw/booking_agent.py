@@ -1,6 +1,6 @@
 from vocode.streaming.models.agent import ChatGPTAgentConfig
 from vocode.streaming.models.message import BaseMessage
-from actions.available_slots import AvailableSlotsActionConfig
+from .actions.available_slots import AvailableSlotsActionConfig
 import os
 from dotenv import load_dotenv
 

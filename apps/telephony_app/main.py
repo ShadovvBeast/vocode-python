@@ -10,8 +10,6 @@ from pyngrok import ngrok
 from vocode.streaming.telephony.config_manager.redis_config_manager import (
     RedisConfigManager,
 )
-from vocode.streaming.models.agent import ChatGPTAgentConfig
-from vocode.streaming.models.message import BaseMessage
 from vocode.streaming.telephony.server.base import (
     TwilioInboundCallConfig,
     TelephonyServer,
@@ -19,9 +17,6 @@ from vocode.streaming.telephony.server.base import (
 from dotenv import load_dotenv
 from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
 # Local application/library specific imports
-from speller_agent import (
-    SpellerAgentFactory,
-)
 
 from mwaw.booking_agent import config as booking_agent_config
 from mwaw.agent_factory import MwawAgentFactory
