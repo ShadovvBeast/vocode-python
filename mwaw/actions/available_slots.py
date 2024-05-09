@@ -12,9 +12,8 @@ from vocode.streaming.models.actions import (
 )
 
 
-class AvailableSlotsActionConfig(ActionConfig, type='action_available_slots'):
+class AvailableSlotsActionConfig(ActionConfig, type=ActionType.AVAILABLE_SLOTS):
     # todo ActionType.AVAILABLE_SLOTS didn't work, why?
-
     base_url: str
 
 
