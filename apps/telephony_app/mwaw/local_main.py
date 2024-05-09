@@ -33,7 +33,7 @@ async def main():
         agent=ChatGPTAgent(booking_agent_config, action_factory=MwawActionFactory()),
         synthesizer=ElevenLabsSynthesizer(ElevenLabsSynthesizerConfig.from_output_device(
             output_device=speaker_output,
-            voice_id="XrExE9yKIg1WjnnlVkGX"
+            voice_id="wP7XBmkAmRwrjtfK2KeY"
         ))
     )
     await conversation.start()

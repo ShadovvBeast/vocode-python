@@ -64,7 +64,7 @@ telephony_server = TelephonyServer(
             # ),
             synthesizer_config=ElevenLabsSynthesizerConfig.from_telephone_output_device(
                 api_key=os.getenv("ELEVEN_LABS_API_KEY"),
-                voice_id="XrExE9yKIg1WjnnlVkGX"
+                voice_id="wP7XBmkAmRwrjtfK2KeY"
             ),
             twilio_config=TwilioConfig(
                 account_sid=os.environ["TWILIO_ACCOUNT_SID"],
