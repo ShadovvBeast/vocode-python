@@ -22,17 +22,16 @@ from vocode.streaming.agent.utils import (
 from vocode.streaming.models.events import Sender
 from vocode.streaming.models.transcript import Transcript
 from vocode.streaming.vector_db.factory import VectorDBFactory
-from apps.telephony_app.action.booking_action_factory import BookingActionFactory
 
 
 class ChatGPTAgent(RespondAgent[ChatGPTAgentConfig]):
     def __init__(
-            self,
-            agent_config: ChatGPTAgentConfig,
-            action_factory: ActionFactory = BookingActionFactory(),
-            logger: Optional[logging.Logger] = None,
-            openai_api_key: Optional[str] = None,
-            vector_db_factory=VectorDBFactory(),
+        self,
+        agent_config: ChatGPTAgentConfig,
+        action_factory: ActionFactory = ActionFactory(),
+        logger: Optional[logging.Logger] = None,
+        openai_api_key: Optional[str] = None,
+        vector_db_factory=VectorDBFactory(),
     ):
         super().__init__(
             agent_config=agent_config, action_factory=action_factory, logger=logger
@@ -71,7 +70,7 @@ class ChatGPTAgent(RespondAgent[ChatGPTAgentConfig]):
         ]
 
     def get_chat_parameters(
-            self, messages: Optional[List] = None, use_functions: bool = True
+        self, messages: Optional[List] = None, use_functions: bool = True
     ):
         assert self.transcript is not None
         messages = messages or format_openai_chat_messages_from_transcript(
@@ -111,10 +110,10 @@ class ChatGPTAgent(RespondAgent[ChatGPTAgentConfig]):
         self.transcript = transcript
 
     async def respond(
-            self,
-            human_input,
-            conversation_id: str,
-            is_interrupt: bool = False,
+        self,
+        human_input,
+        conversation_id: str,
+        is_interrupt: bool = False,
     ) -> Tuple[str, bool]:
         assert self.transcript is not None
         if is_interrupt and self.agent_config.cut_off_response:
@@ -133,10 +132,10 @@ class ChatGPTAgent(RespondAgent[ChatGPTAgentConfig]):
         return text, False
 
     async def generate_response(
-            self,
-            human_input: str,
-            conversation_id: str,
-            is_interrupt: bool = False,
+        self,
+        human_input: str,
+        conversation_id: str,
+        is_interrupt: bool = False,
     ) -> AsyncGenerator[Tuple[Union[str, FunctionCall], bool], None]:
         if is_interrupt and self.agent_config.cut_off_response:
             cut_off_response = self.get_cut_off_response()
@@ -175,6 +174,6 @@ class ChatGPTAgent(RespondAgent[ChatGPTAgentConfig]):
         chat_parameters["stream"] = True
         stream = await openai.ChatCompletion.acreate(**chat_parameters)
         async for message in collate_response_async(
-                openai_get_tokens(stream), get_functions=True
+            openai_get_tokens(stream), get_functions=True
         ):
             yield message, True
