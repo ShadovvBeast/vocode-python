@@ -52,8 +52,6 @@ class AvailableSlots(
         else:
             return_val = response['message']
 
-        print('available_slots_response', return_val)
-
         return ActionOutput(
             action_type=self.action_config.type,
             response=AvailableSlotsResponse(success=return_val),
