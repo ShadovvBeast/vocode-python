@@ -1,7 +1,5 @@
 import asyncio
 import signal
-import os
-import vocode
 from vocode.streaming.streaming_conversation import StreamingConversation
 from vocode.helpers import create_streaming_microphone_input_and_speaker_output
 from vocode.streaming.models.transcriber import (
@@ -9,8 +7,6 @@ from vocode.streaming.models.transcriber import (
     PunctuationEndpointingConfig,
 )
 from vocode.streaming.agent.chat_gpt_agent import ChatGPTAgent
-from vocode.streaming.models.agent import ChatGPTAgentConfig
-from vocode.streaming.models.message import BaseMessage
 from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
 from vocode.streaming.synthesizer.eleven_labs_synthesizer import ElevenLabsSynthesizer
 from vocode.streaming.transcriber.deepgram_transcriber import DeepgramTranscriber
@@ -18,8 +14,6 @@ from dotenv import load_dotenv
 
 from booking_agent import config as booking_agent_config
 from actions.factory import MwawActionFactory
-
-# these can also be set as environment variables
 
 load_dotenv()
 
