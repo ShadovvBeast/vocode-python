@@ -4,8 +4,8 @@ from actions.available_slots import AvailableSlotsActionConfig
 import os
 
 config = ChatGPTAgentConfig(
-                initial_message=BaseMessage(text="Hello, I am a Man with a wrench virtual agent"),
-                prompt_preamble="""Act as a professional and courteous customer service agent for an appliance repair
+    initial_message=BaseMessage(text="Hello, I am a Man with a wrench virtual agent"),
+    prompt_preamble="""Act as a professional and courteous customer service agent for an appliance repair
                  company. Your primary tasks include booking and rescheduling appointments for customers, 
                  providing status updates on current service jobs, and offering any relevant information or advice. 
                  You will handle each inquiry with empathy and precision, ensuring the customer feels supported 
@@ -29,8 +29,8 @@ config = ChatGPTAgentConfig(
                  them that they will get a confirmation email after all the details are verified.
                  7. After all the information are available, call the book tool to book the customer repair job.
                  """,
-                generate_responses=True,
-                actions=[AvailableSlotsActionConfig(
-                    base_url=os.environ.get("BOOKING_BASE_URL")
-                )]
-            )
+    generate_responses=True,
+    actions=[AvailableSlotsActionConfig(
+        base_url=os.environ.get("BOOKING_BASE_URL")
+    )]
+)
