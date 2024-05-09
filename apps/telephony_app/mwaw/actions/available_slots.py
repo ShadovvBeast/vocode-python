@@ -18,7 +18,7 @@ class AvailableSlotsActionConfig(ActionConfig, type="action_available_slots"):
 
 
 class AvailableSlotsParameters(BaseModel):
-    postal_code: str = Field(..., description="The postal code of the address where the repair job is to be booked")
+    address: str = Field(..., description="The address where the repair job is to be booked")
     appliance_type: str = Field(..., description="The appliance type can either be gas or electric. If not provided, "
                                                  "its electric by default")
 
@@ -41,7 +41,7 @@ class AvailableSlots(
     ) -> ActionOutput[AvailableSlotsResponse]:
 
         params = {
-            'targetAddress': 'Postal code: ' + action_input.params.postal_code,
+            'targetAddress': action_input.params.address,
             'filters': json.dumps({'category_id': 1}),
             'appliance_type': action_input.params.appliance_type if action_input.params.appliance_type else 'electric'}
         response = requests.get(self.action_config.base_url + '/api/bookings/availableDates', params=params,
