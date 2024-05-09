@@ -8,7 +8,7 @@ from vocode.streaming.models.agent import (
     ChatGPTAgentConfig,
 )
 
-from actions.factory import MwawActionFactory
+from mwaw.factory import MwawActionFactory
 
 
 class MwawAgentFactory(AgentFactory):

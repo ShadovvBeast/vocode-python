@@ -2,6 +2,9 @@ from vocode.streaming.models.agent import ChatGPTAgentConfig
 from vocode.streaming.models.message import BaseMessage
 from actions.available_slots import AvailableSlotsActionConfig
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 config = ChatGPTAgentConfig(
     initial_message=BaseMessage(text="Hello, I am a Man with a wrench virtual agent"),

@@ -13,7 +13,7 @@ from vocode.streaming.transcriber.deepgram_transcriber import DeepgramTranscribe
 from dotenv import load_dotenv
 
 from booking_agent import config as booking_agent_config
-from actions.factory import MwawActionFactory
+from action_factory import MwawActionFactory
 
 load_dotenv()
 
