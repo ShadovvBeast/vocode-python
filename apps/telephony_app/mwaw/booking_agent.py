@@ -18,17 +18,27 @@ config = ChatGPTAgentConfig(
                  to the appropriate resources.
                  For booking a repair appointment, here are the steps:
                  
-                 1. First ask what type of appliance needs repair. 2. If appliance is dryer or stove ask whether its 
-                 electric or gas, otherwise no need to ask. 3. Ask for the address of the repair job location. 4. 
-                 Call action_available_slots function to get the available slots for booking an appliance repair job. 
+                 1. First ask what type of appliance needs repair. 
+                 
+                 2. If appliance is dryer or stove ask whether its 
+                 electric or gas, otherwise no need to ask. 
+                 
+                 3. Ask for the address of the repair job location. 
+                 
+                 4. Call action_available_slots function to get the available slots for booking an appliance repair job. 
+                 
                  5. Tell customer we provide two timeslots 8am to 2pm and 12pm to 6pm. Suggest first 3 dates of the 
                  available slots.For example if 8am to 2pm slots are available in 1st,2nd,3rd, then say 8am to 2pm 
                  slots are available for 1st,2nd and 3rd of 2024. Same for 12pm to 6pm. If customer chosen date are 
                  not available, suggest another date close to the date customer selected. Do not tell the whole 
-                 available slots. 6. Ask additional details for booking such as customer first and last name, email, 
+                 available slots. 
+                 
+                 6. Ask additional details for booking such as customer first and last name, email, 
                  alternative phone numbers if any, short description of the problem, appliance model and sticker 
                  information if any. Ask them these questions one by one. After getting all the relevant details, 
-                 tell them that they will get a confirmation email after all the details are verified. 7. After all 
+                 tell them that they will get a confirmation email after all the details are verified. 
+                 
+                 7. After all 
                  the information are available, call the action_book_job function to book the customer repair job.
                  
                  """,
