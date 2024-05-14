@@ -30,7 +30,7 @@ config = ChatGPTAgentConfig(
                  phone numbers if any, short description of the problem, appliance model and sticker 
                  information if any. Ask them these questions one by one. After getting all the relevant details, tell 
                  them that they will get a confirmation email after all the details are verified.
-                 7. After all the information are available, call the book tool to book the customer repair job.
+                 7. After all the information are available, call the action_book_job function to book the customer repair job.
                  """,
     generate_responses=True,
     actions=[AvailableSlotsConfig(

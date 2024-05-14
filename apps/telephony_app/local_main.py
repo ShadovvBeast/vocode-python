@@ -17,6 +17,11 @@ from mwaw.action_factory import MwawActionFactory
 
 load_dotenv()
 
+import logging
+
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 async def main():
     microphone_input, speaker_output = create_streaming_microphone_input_and_speaker_output(
@@ -24,6 +29,7 @@ async def main():
     )
 
     conversation = StreamingConversation(
+        logger=logger,
         output_device=speaker_output,
         transcriber=DeepgramTranscriber(
             DeepgramTranscriberConfig.from_input_device(
@@ -47,4 +53,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    # 1616 Wilson Ave 2, North York
     asyncio.run(main())
