@@ -1,6 +1,7 @@
 from vocode.streaming.models.agent import ChatGPTAgentConfig
 from vocode.streaming.models.message import BaseMessage
 from .actions.available_slots import AvailableSlotsConfig
+from .actions.book_job import BookJobConfig
 import os
 from dotenv import load_dotenv
 
@@ -34,6 +35,8 @@ config = ChatGPTAgentConfig(
                  """,
     generate_responses=True,
     actions=[AvailableSlotsConfig(
+        base_url=os.environ.get("BOOKING_BASE_URL")
+    ), BookJobConfig(
         base_url=os.environ.get("BOOKING_BASE_URL")
     )]
 )

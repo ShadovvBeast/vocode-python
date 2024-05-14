@@ -34,7 +34,7 @@ class BookJobResponse(BaseModel):
     success: str
 
 
-class AvailableSlots(
+class BookJob(
     BaseAction[
         BookJobConfig, BookJobParameters, BookJobResponse
     ]
