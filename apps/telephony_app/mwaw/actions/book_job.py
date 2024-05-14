@@ -47,7 +47,7 @@ class BookJob(
             self, action_input: ActionInput[BookJobParameters]
     ) -> ActionOutput[BookJobResponse]:
 
-        response = requests.get(self.action_config.base_url + '/api/bookings/availableDates',
+        response = requests.get(self.action_config.base_url + '/api/bookings/virtualAgentBook',
                                 params=action_input.params,
                                 headers={'Accept': 'application/json'}).json()
 
