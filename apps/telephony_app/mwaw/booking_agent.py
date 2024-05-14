@@ -39,7 +39,8 @@ config = ChatGPTAgentConfig(
                  tell them that they will get a confirmation email after all the details are verified. 
                  
                  7. After all 
-                 the information are available, call the action_book_job function to book the customer repair job.
+                 the information are available, call action_book_job function to book the customer repair job.
+                 Unless all the information are available, keep asking questions, do not book with incomplete data.
                  
                  """,
     generate_responses=True,
