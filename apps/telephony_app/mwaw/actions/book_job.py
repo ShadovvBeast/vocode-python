@@ -51,6 +51,7 @@ class BookJob(
                                 params=action_input.params,
                                 headers={'Accept': 'application/json'}).json()
 
+        print('booked job response', response)
         if response['message'] == 'success':
             return_val = 'The job has been booked successfully'
         else:
