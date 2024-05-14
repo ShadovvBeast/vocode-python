@@ -8,12 +8,10 @@ from vocode.streaming.models.actions import (
     ActionConfig,
     ActionInput,
     ActionOutput,
-    ActionType,
 )
 
 
-class AvailableSlotsActionConfig(ActionConfig, type="action_available_slots"):
-    # todo ActionType.AVAILABLE_SLOTS didn't work, why?
+class AvailableSlotsConfig(ActionConfig, type="action_available_slots"):
     base_url: str
 
 
@@ -29,7 +27,7 @@ class AvailableSlotsResponse(BaseModel):
 
 class AvailableSlots(
     BaseAction[
-        AvailableSlotsActionConfig, AvailableSlotsParameters, AvailableSlotsResponse
+        AvailableSlotsConfig, AvailableSlotsParameters, AvailableSlotsResponse
     ]
 ):
     description: str = "Get available slots by dates for booking"

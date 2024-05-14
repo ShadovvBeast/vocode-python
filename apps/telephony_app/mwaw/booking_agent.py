@@ -1,6 +1,6 @@
 from vocode.streaming.models.agent import ChatGPTAgentConfig
 from vocode.streaming.models.message import BaseMessage
-from .actions.available_slots import AvailableSlotsActionConfig
+from .actions.available_slots import AvailableSlotsConfig
 import os
 from dotenv import load_dotenv
 
@@ -33,7 +33,7 @@ config = ChatGPTAgentConfig(
                  7. After all the information are available, call the book tool to book the customer repair job.
                  """,
     generate_responses=True,
-    actions=[AvailableSlotsActionConfig(
+    actions=[AvailableSlotsConfig(
         base_url=os.environ.get("BOOKING_BASE_URL")
     )]
 )

@@ -12,8 +12,8 @@ from vocode.streaming.synthesizer.eleven_labs_synthesizer import ElevenLabsSynth
 from vocode.streaming.transcriber.deepgram_transcriber import DeepgramTranscriber
 from dotenv import load_dotenv
 
-from booking_agent import config as booking_agent_config
-from .action_factory import MwawActionFactory
+from mwaw.booking_agent import config as booking_agent_config
+from mwaw.action_factory import MwawActionFactory
 
 load_dotenv()
 
