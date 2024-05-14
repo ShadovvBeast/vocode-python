@@ -36,7 +36,9 @@ config = ChatGPTAgentConfig(
     generate_responses=True,
     actions=[AvailableSlotsConfig(
         base_url=os.environ.get("BOOKING_BASE_URL")
-    ), BookJobConfig(
+    ),
+        BookJobConfig(
         base_url=os.environ.get("BOOKING_BASE_URL")
-    )]
+    )
+    ]
 )

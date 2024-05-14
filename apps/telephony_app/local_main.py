@@ -23,6 +23,7 @@ logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+
 async def main():
     microphone_input, speaker_output = create_streaming_microphone_input_and_speaker_output(
         use_default_devices=True,

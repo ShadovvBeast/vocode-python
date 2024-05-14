@@ -16,18 +16,18 @@ class BookJobConfig(ActionConfig, type="action_book_job"):
 
 class BookJobParameters(BaseModel):
     name: str = Field(..., description="Full customer name")
-    email: str = Field(..., description="Provided emails in json array format"),
-    phone: str = Field(..., description="Provided phone numbers in json array format"),
-    appliance: str = Field(..., description="Name of the appliance"),
+    email: str = Field(..., description="Provided emails in json array format")
+    phone: str = Field(..., description="Provided phone numbers in json array format")
+    appliance: str = Field(..., description="Name of the appliance")
     appliance_type: str = Field(...,
-                                description="Either gas or electric, if not mentioned, default should be electric"),
-    location: str = Field(..., description="Address of the job location with postal code"),
+                                description="Either gas or electric, if not mentioned, default should be electric")
+    location: str = Field(..., description="Address of the job location with postal code")
     description: str = Field(...,
                              description="Description of the problem that needs repair along with appliance model, "
-                                         "sticker information and all other relevant info"),
-    date: str = Field(..., description="date on which the repair job is to be booked in YYYY-MM-DD format"),
+                                         "sticker information and all other relevant info")
+    date: str = Field(..., description="date on which the repair job is to be booked in YYYY-MM-DD format")
     timeslot: str = Field(..., description="Timeslot of the repair job to be booked. Its either 8am to 2pm or 12pm to "
-                                           "6pm"),
+                                           "6pm")
 
 
 class BookJobResponse(BaseModel):
