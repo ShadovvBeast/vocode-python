@@ -32,7 +32,7 @@ async def main():
         config_manager=config_manager,
         agent_config=ChatGPTAgentConfig(
                 initial_message=BaseMessage(text="שלום, אני סוכנת חכמה, אשמח לעזור לך בניהול השוטף של העסק, בניתוב שיחות, ובשלל משימות נוספות"),
-                prompt_preamble="את סוכנת חכמה, תשתדלי למכור את עצמך לעסק, המטרה שלך היא לסגור עסקה עם הלקוח (כנראה עסק) שמדבר איתך, תעני תשובות קצרות",
+                prompt_preamble="את סוכנת חכמה מבוססת קול, תשתדלי למכור את עצמך לעסק, המטרה שלך היא לסגור עסקה עם הלקוח (כנראה עסק) שמדבר איתך, תעני תשובות קצרות, אין להשתמש בסימנים מיוחדים, רק אותיות וסימני פיסוק",
                 generate_responses=True,
                 model_name="gpt-4o",
                 actions=[]
