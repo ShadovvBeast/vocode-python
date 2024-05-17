@@ -10,12 +10,17 @@ from pyngrok import ngrok
 from vocode.streaming.telephony.config_manager.redis_config_manager import (
     RedisConfigManager,
 )
+from vocode.streaming.models.agent import ChatGPTAgentConfig
+from vocode.streaming.models.message import BaseMessage
 from vocode.streaming.telephony.server.base import (
     TwilioInboundCallConfig,
     TelephonyServer,
 )
 from dotenv import load_dotenv
 from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
+from vocode.streaming.models.synthesizer import AzureSynthesizerConfig
+from vocode.streaming.synthesizer.azure_synthesizer import AzureSynthesizer
+
 # Local application/library specific imports
 
 from mwaw.booking_agent import config as booking_agent_config
@@ -63,8 +68,8 @@ telephony_server = TelephonyServer(
             #     generate_responses=False,
             # ),
             synthesizer_config=ElevenLabsSynthesizerConfig.from_telephone_output_device(
-                api_key=os.getenv("ELEVEN_LABS_API_KEY"),
-                voice_id="wP7XBmkAmRwrjtfK2KeY"
+                        api_key=os.getenv("ELEVEN_LABS_API_KEY"),
+                        voice_id="3gsg3cxXyFLcGIfNbM6C"
             ),
             twilio_config=TwilioConfig(
                 account_sid=os.environ["TWILIO_ACCOUNT_SID"],

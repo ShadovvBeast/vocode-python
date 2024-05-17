@@ -105,6 +105,7 @@ class AzureSynthesizer(BaseSynthesizer[AzureSynthesizerConfig]):
             speech_config.set_speech_synthesis_output_format(
                 speechsdk.SpeechSynthesisOutputFormat.Raw8Khz8BitMonoMULaw
             )
+            speech_config.speech_synthesis_language = "he-IL"
         self.synthesizer = speechsdk.SpeechSynthesizer(
             speech_config=speech_config, audio_config=None
         )

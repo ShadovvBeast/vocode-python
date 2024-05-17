@@ -5,7 +5,9 @@ from vocode.streaming.telephony.config_manager.redis_config_manager import (
     RedisConfigManager,
 )
 from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
-
+from vocode.streaming.models.synthesizer import AzureSynthesizerConfig
+from vocode.streaming.synthesizer.azure_synthesizer import AzureSynthesizer
+from vocode.streaming.models.transcriber import AzureTranscriberConfig, PunctuationEndpointingConfig
 from vocode.streaming.models.agent import ChatGPTAgentConfig
 from vocode.streaming.models.message import BaseMessage
 
@@ -19,17 +21,23 @@ async def main():
 
     outbound_call = OutboundCall(
         base_url=BASE_URL,
-        to_phone="+14168717173",
+        #to_phone="+972542347471",
+        to_phone="+972505817223",
+        #to_phone="+14168717173",
+        #to_phone="+27764169128",
+        #to_phone="+14103775563",
         from_phone="+12898074196",
         mobile_only=False,
+        transcriber_config=AzureTranscriberConfig.from_telephone_input_device(endpointing_config=PunctuationEndpointingConfig(), candidate_languages=['he-IL']),
         config_manager=config_manager,
         agent_config=ChatGPTAgentConfig(
-                initial_message=BaseMessage(text="Hello, I am a virtual Infinity Engager sales representative"),
-                prompt_preamble="Act as a professional and courteous sales representative agent for Infinity Engager, a product that helps you engage with your audience on social media by replying to comments. Each comment only costs 1 cent, use that as a selling point. Your goal is to make a deal and help the user register. They can look up Infinity Engager on Google to get to the website and get 1000 free tokens to test out the product",
+                initial_message=BaseMessage(text="שלום, אני סוכנת חכמה, אשמח לעזור לך בניהול השוטף של העסק, בניתוב שיחות, ובשלל משימות נוספות"),
+                prompt_preamble="את סוכנת חכמה, תשתדלי למכור את עצמך לעסק, המטרה שלך היא לסגור עסקה עם הלקוח (כנראה עסק) שמדבר איתך, תעני תשובות קצרות",
                 generate_responses=True,
+                model_name="gpt-4o",
+                actions=[]
             ),
-        synthesizer_config=ElevenLabsSynthesizerConfig.from_telephone_output_device(
-                        api_key=os.getenv("ELEVEN_LABS_API_KEY"))
+        synthesizer_config=AzureSynthesizerConfig.from_telephone_output_device(language_code='he-IL', voice_name='he-IL-HilaNeural')
     )
 
     input("Press enter to start call...")
