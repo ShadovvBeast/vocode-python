@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from vocode.streaming.models.synthesizer import ElevenLabsSynthesizerConfig
 # Local application/library specific imports
 
-from mwaw.booking_agent import config as booking_agent_config
+from mwaw.book_revisit_agent import config as agent_config
 from mwaw.agent_factory import MwawAgentFactory
 
 # if running from python, this will load the local .env
@@ -56,7 +56,7 @@ telephony_server = TelephonyServer(
     inbound_call_configs=[
         TwilioInboundCallConfig(
             url="/inbound_call",
-            agent_config=booking_agent_config,
+            agent_config=agent_config,
             # uncomment this to use the speller agent instead
             # agent_config=SpellerAgentConfig(
             #     initial_message=BaseMessage(text="im a speller agent, say something to me and ill spell it out for you"),
