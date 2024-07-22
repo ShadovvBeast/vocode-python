@@ -3,6 +3,7 @@ from vocode.streaming.action.factory import ActionFactory
 from vocode.streaming.models.actions import ActionConfig
 from .actions.available_slots import AvailableSlots, AvailableSlotsConfig
 from .actions.book_job import BookJob, BookJobConfig
+from .actions.book_revisit import BookRevisit, BookRevisitConfig
 
 
 class MwawActionFactory(ActionFactory):
@@ -11,5 +12,7 @@ class MwawActionFactory(ActionFactory):
             return AvailableSlots(action_config, should_respond=True)
         elif isinstance(action_config, BookJobConfig):
             return BookJob(action_config, should_respond=True)
+        elif isinstance(action_config, BookRevisitConfig):
+            return BookRevisit(action_config, should_respond=True)
         else:
             raise Exception("Invalid action type")

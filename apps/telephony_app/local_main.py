@@ -12,7 +12,7 @@ from vocode.streaming.synthesizer.eleven_labs_synthesizer import ElevenLabsSynth
 from vocode.streaming.transcriber.deepgram_transcriber import DeepgramTranscriber
 from dotenv import load_dotenv
 
-from mwaw.booking_agent import config as booking_agent_config
+from mwaw.book_revisit_agent import config as agent_config
 from mwaw.action_factory import MwawActionFactory
 
 load_dotenv()
@@ -37,7 +37,7 @@ async def main():
                 microphone_input, endpointing_config=PunctuationEndpointingConfig()
             )
         ),
-        agent=ChatGPTAgent(booking_agent_config, action_factory=MwawActionFactory()),
+        agent=ChatGPTAgent(agent_config, action_factory=MwawActionFactory()),
         synthesizer=ElevenLabsSynthesizer(ElevenLabsSynthesizerConfig.from_output_device(
             output_device=speaker_output,
             voice_id="wP7XBmkAmRwrjtfK2KeY"
