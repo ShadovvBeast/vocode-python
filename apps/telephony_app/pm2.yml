@@ -1,0 +1,5 @@
+apps:
+  - name: vocode
+    script: poetry run uvicorn main:app --port 3005
+    instances: 1
+    exec_mode: fork
