@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 config = ChatGPTAgentConfig(
-    initial_message=BaseMessage(text="Hello Mr. Linchestein, this is Man With A Wrench calling to schedule a return "
+    initial_message=BaseMessage(text="Hello Mr. Linchestein, this is Man With"
+                                     "A Wrench calling to schedule a return "
                                      "visit for your dishwasher repair. Our technician diagnosed the issue and we "
                                      "need to install new parts (Fuse, Lock right, and Lock left). Are you available "
                                      "this week for us to complete the job?"),
